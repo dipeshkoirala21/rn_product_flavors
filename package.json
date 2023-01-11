@@ -7,7 +7,9 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "androidDev": "ENVFILE=.env.dev && react-native run-android --variant=devDebug --appIdSuffix dev",
+    "androidProd": "ENVFILE=.env.prod && react-native run-android --variant=prodDebug --appIdSuffix prod"
   },
   "dependencies": {
     "react": "18.1.0",
