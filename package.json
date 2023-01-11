@@ -8,8 +8,11 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint .",
-    "androidDev": "ENVFILE=.env.dev && react-native run-android --variant=devDebug --appIdSuffix dev",
-    "androidProd": "ENVFILE=.env.prod && react-native run-android --variant=prodDebug --appIdSuffix prod"
+    "android:devDebug": "ENVFILE=.env.dev && react-native run-android --variant=devDebug --appIdSuffix dev",
+    "android:devRelease": "ENVFILE=.env.dev && cd android/ && gradlew assembleDevRelease",
+    "android:prodDebug": "ENVFILE=.env.prod && react-native run-android --variant=prodDebug --appIdSuffix prod",
+    "android:prodRelease": "ENVFILE=.env.prod && cd android/ && gradlew assembleProdRelease",
+    "android:bundleRelease": "ENVFILE=.env.prod && cd android/ && gradlew bundleProdRelease"
   },
   "dependencies": {
     "react": "18.1.0",

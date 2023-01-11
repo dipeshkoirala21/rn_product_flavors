@@ -240,7 +240,7 @@ android {
     }
 
     flavorDimensions "version"
-    productFlavors { //add this object
+    productFlavors { 
         dev {
             dimension "version"
             applicationIdSuffix '.dev'
