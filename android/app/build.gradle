@@ -1,4 +1,10 @@
 apply plugin: "com.android.application"
+
+project.ext.envConfigFiles = [
+    dev: ".env.dev",
+    prod: ".env.prod",
+]
+
 apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
 
 import com.android.build.OutputFile
@@ -142,6 +148,7 @@ android {
         versionCode 1
         versionName "1.0"
         buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", isNewArchitectureEnabled().toString()
+        resValue "string", "build_config_package", "com.rn_multiple_variant"
 
         if (isNewArchitectureEnabled()) {
             // We configure the CMake build only if you decide to opt-in for the New Architecture.
@@ -238,7 +245,6 @@ android {
             dimension "version"
             applicationIdSuffix '.dev'
             resValue "string", "com.rn_multiple_variant.dev", "com.rn_multiple_variant"
-           
         }
         prod {
             dimension "version"
