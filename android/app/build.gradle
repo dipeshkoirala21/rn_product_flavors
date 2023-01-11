@@ -1,5 +1,5 @@
 apply plugin: "com.android.application"
-apply from: project(':react-native-config').projectDir.getPath() 
+apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
 
 import com.android.build.OutputFile
 import org.apache.tools.ant.taskdefs.condition.Os
@@ -229,6 +229,21 @@ android {
             signingConfig signingConfigs.debug
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+        }
+    }
+
+    flavorDimensions "version"
+    productFlavors { //add this object
+        dev {
+            dimension "version"
+            applicationIdSuffix '.dev'
+            resValue "string", "com.rn_multiple_variant.dev", "com.rn_multiple_variant"
+           
+        }
+        prod {
+            dimension "version"
+            applicationIdSuffix '.prod'
+            resValue "string", "com.rn_multiple_variant.prod", "com.rn_multiple_variant"
         }
     }
 
